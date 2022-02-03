@@ -1,0 +1,42 @@
+<mvc:View controllerName="com.kartonsan.ders1.controller.Object"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:u="sap.ui.unified">
+
+	<ObjectHeader binding="" title="malzeme" number="{
+			parts:[{path:'Price'},{path:'CurrencyCode'}],
+			type: 'sap.ui.model.type.Currency',
+			formatOptions: {showMeasure: false}
+		}" numberUnit="Kg">
+		<statuses>
+			<ObjectStatus text="Some Damaged" state="Error" />
+			<ObjectStatus text="In Stock" state="Success" />
+		</statuses>
+		<attributes>
+			<ObjectAttribute text="{WeightMeasure} {WeightUnit}" />
+			<ObjectAttribute text="{Width} x {Depth} x {Height} {DimUnit}" />
+			<ObjectAttribute text="{Description}" />
+			<ObjectAttribute text="www.sap.com" active="true" press="handleLinkObjectAttributePress" />
+		</attributes>
+	</ObjectHeader>
+	<IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter icon="sap-icon://hint">
+				<Text text="Tornavida" />
+			</IconTabFilter>
+			<IconTabFilter icon="sap-icon://attachment" count="3">
+				<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server" uploadComplete="handleUploadComplete"/>
+				<Button text="Upload File" press="handleUploadPress"/>
+
+			</IconTabFilter>
+			<IconTabFilter icon="sap-icon://notes" count="12">
+				<Text text="Notlar" />
+			</IconTabFilter>
+			<IconTabFilter icon="sap-icon://group">
+				<Text text="yazışma	" />
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
+
+</mvc:View>
